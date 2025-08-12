@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ฟอร์มสมัครเรียนต่อระดับปริญญาตรี</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; max-width:900px; margin:20px auto; padding:0 16px; color:#222; }
+    h1 { color:#a3390b; }
+    fieldset { margin-bottom:16px; padding:12px; border:1px solid #ccc; border-radius:6px; }
+    legend { font-weight:bold; }
+    .row { display:flex; gap:12px; flex-wrap:wrap; }
+    .col { flex:1 1 220px; min-width:180px; }
+    label { display:block; margin-bottom:6px; font-size:0.95rem; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"],
+    select, textarea, input[type="date"] {
+      width:100%; padding:8px; border:1px solid #bbb; border-radius:4px;
+    }
+    textarea { min-height:80px; resize:vertical; }
+    .small { max-width:140px; }
+    .actions { display:flex; gap:12px; align-items:center; margin-top:8px; }
+    .note { font-size:0.9rem; color:#555; }
+  </style>
+</head>
+<body>
+  <h1>แบบฟอร์มสมัครเรียนต่อระดับปริญญาตรี
+    <img src="images/ดาวน์โหลด.png" alt="Logo" style="height:80px; vertical-align:middle; margin-left:15px;">
+  </h1>
+
+  <form id="applicationForm" action="#" method="post" enctype="multipart/form-data" novalidate>
+    
+    <fieldset>
+      <legend>ข้อมูลส่วนตัว</legend>
+
+      <div class="row">
+        <div class="col">
+          <label for="title">คำนำหน้า</label>
+          <select id="title" name="title" required>
+            <option value="">-- เลือก --</option>
+            <option>นาย</option>
+            <option>นางสาว</option>
+            <option>นาง</option>
+            <option>อื่น ๆ</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="firstName">ชื่อ</label>
+          <input id="firstName" name="firstName" type="text" required />
+        </div>
+
+        <div class="col">
+          <label for="lastName">นามสกุล</label>
+          <input id="lastName" name="lastName" type="text" required />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div class="col small">
+          <label for="idNumber">เลขประจำตัวประชาชน</label>
+          <input id="idNumber" name="idNumber" type="text" maxlength="13" pattern="\d{13}" title="กรอกตัวเลข 13 หลัก" required />
+        </div>
+
+        <div class="col small">
+          <label for="birthdate">วัน/เดือน/ปีเกิด</label>
+          <input id="birthdate" name="birthdate" type="date" required />
+        </div>
+
+        <div class="col small">
+          <label for="age">อายุ (ปี)</label>
+          <input id="age" name="age" type="number" min="0" class="small" required />
+        </div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label>เพศ</label>
+        <label><input type="radio" name="gender" value="ชาย" required> ชาย</label>
+        <label><input type="radio" name="gender" value="หญิง"> หญิง</label>
+        <label><input type="radio" name="gender" value="ไม่ระบุ"> ไม่ระบุ</label>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div class="col">
+          <label for="nationality">สัญชาติ</label>
+          <input id="nationality" name="nationality" type="text" />
+        </div>
+        <div class="col">
+          <label for="ethnicity">เชื้อชาติ</label>
+          <input id="ethnicity" name="ethnicity" type="text" />
+        </div>
+        <div class="col">
+          <label for="religion">ศาสนา</label>
+          <input id="religion" name="religion" type="text" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div class="col">
+          <label for="phone">เบอร์โทรศัพท์</label>
+          <input id="phone" name="phone" type="tel" pattern="0[0-9]{8,9}" title="ตัวเลขโทรศัพท์ เช่น 08xxxxxxxx" required />
+        </div>
+        <div class="col">
+          <label for="email">อีเมล</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label for="address">ที่อยู่</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>ข้อมูลการสมัครเรียน</legend>
+
+      <div class="row">
+        <div class="col">
+          <label>วุฒิที่จบมา</label>
+          <label><input type="radio" name="prevDegreeType" value="ม.6" required> ม.6</label>
+          <label><input type="radio" name="prevDegreeType" value="ปวช."> ปวช.</label>
+          <label><input type="radio" name="prevDegreeType" value="ปวส."> ปวส.</label>
+          <div style="margin-top:6px;"> หรือเลือก: 
+            <select name="prevDegreeSelect">
+              <option value="">-- หากต้องการใช้ select --</option>
+              <option>ม.6</option>
+              <option>ปวช.</option>
+              <option>ปวส.</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="schoolName">ชื่อสถานศึกษาที่จบ</label>
+          <input id="schoolName" name="schoolName" type="text" />
+        </div>
+
+        <div class="col small">
+          <label for="gradYear">ปีที่จบ</label>
+          <input id="gradYear" name="gradYear" type="number" min="1900" max="2100" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div class="col small">
+          <label for="gpa">GPA</label>
+          <input id="gpa" name="gpa" type="number" step="0.01" min="0" max="4" />
+        </div>
+
+        <div class="col">
+          <label for="major">สาขาที่สมัคร</label>
+          <select id="major" name="major" required>
+            <option value="">-- เลือกสาขา --</option>
+            <option>IT</option>
+            <option>ITI</option>
+            <option>INE</option>
+            <option>INET</option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="reason">เหตุผลที่เลือกสาขา</label>
+          <textarea id="reason" name="reason"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>ประวัติการศึกษา (กรอก 3 ระดับ)</legend>
+
+      
+      <fieldset>
+        <legend>ประถมศึกษา</legend>
+        <div class="row">
+          <div class="col"><label>สถานศึกษา</label><input name="primary_school" type="text"></div>
+          <div class="col small"><label>จังหวัด</label><input name="primary_province" type="text"></div>
+          <div class="col small"><label>ปีเข้ารับการศึกษา</label><input name="primary_year_in" type="number" min="1900" max="2100"></div>
+          <div class="col small"><label>ปีจบการศึกษา</label><input name="primary_year_out" type="number" min="1900" max="2100"></div>
+          <div class="col small"><label>วุฒิที่ได้รับ</label><input name="primary_degree" type="text"></div>
+          <div class="col small"><label>GPA</label><input name="primary_gpa" type="number" step="0.01" min="0" max="4"></div>
+        </div>
+      </fieldset>
+
+      
+      <fieldset>
+        <legend>มัธยมต้น</legend>
+        <div class="row">
+          <div class="col"><label>สถานศึกษา</label><input name="lowersec_school" type="text"></div>
+          <div class="col small"><label>จังหวัด</label><input name="lowersec_province" type="text"></div>
+          <div class="col small"><label>ปีเข้ารับการศึกษา</label><input name="lowersec_year_in" type="number"></div>
+          <div class="col small"><label>ปีจบการศึกษา</label><input name="lowersec_year_out" type="number"></div>
+          <div class="col small"><label>วุฒิที่ได้รับ</label><input name="lowersec_degree" type="text"></div>
+          <div class="col small"><label>GPA</label><input name="lowersec_gpa" type="number" step="0.01"></div>
+        </div>
+      </fieldset>
+
+      
+      <fieldset>
+        <legend>มัธยมปลาย / ปวช. / ปวส.</legend>
+        <div class="row">
+          <div class="col"><label>สถานศึกษา</label><input name="uppersec_school" type="text"></div>
+          <div class="col small"><label>จังหวัด</label><input name="uppersec_province" type="text"></div>
+          <div class="col small"><label>ปีเข้ารับการศึกษา</label><input name="uppersec_year_in" type="number"></div>
+          <div class="col small"><label>ปีจบการศึกษา</label><input name="uppersec_year_out" type="number"></div>
+          <div class="col small"><label>วุฒิที่ได้รับ</label><input name="uppersec_degree" type="text"></div>
+          <div class="col small"><label>GPA</label><input name="uppersec_gpa" type="number" step="0.01"></div>
+        </div>
+      </fieldset>
+
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>เอกสารแนบ</legend>
+      <p class="note">โปรดแนบสแกน/สำเนาไฟล์เป็น .pdf, .jpg, .png (รองรับการแนบหลายไฟล์)</p>
+
+      <div>
+        <label for="idCardFile">สำเนาบัตรประชาชน</label>
+        <input id="idCardFile" name="idCardFile[]" type="file" accept=".pdf,image/*" multiple required>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label for="educationFiles">ไฟล์วุฒิการศึกษา (เช่น ปพ.1)</label>
+        <input id="educationFiles" name="educationFiles[]" type="file" accept=".pdf,image/*" multiple required>
+      </div>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>ยืนยันและส่งฟอร์ม</legend>
+
+      <label><input type="checkbox" id="agree" name="agree" required> ข้าพเจ้ายอมรับเงื่อนไขและยืนยันว่าข้อมูลทั้งหมดเป็นความจริง</label>
+
+      <div class="actions">
+        <input type="submit" value="ส่งฟอร์ม">
+        <input type="reset" value="รีเซ็ต">
+      </div>
+    </fieldset>
+  </form>
+
+  <script>
+    
+    const birthInput = document.getElementById('birthdate');
+    const ageInput = document.getElementById('age');
+
+    function calcAgeFromDate(dateString) {
+      if (!dateString) return '';
+      const birth = new Date(dateString);
+      const today = new Date();
+      let age = today.getFullYear() - birth.getFullYear();
+      const m = today.getMonth() - birth.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+      return age;
+    }
+
+    birthInput.addEventListener('change', () => {
+      const age = calcAgeFromDate(birthInput.value);
+      if (age >= 0) ageInput.value = age;
+    });
+
+    
+    ageInput.addEventListener('input', () => {
+    
+    });
+
+    // ตัวอย่างการตรวจสอบก่อนส่ง (basic)
+    document.getElementById('applicationForm').addEventListener('submit', (e) => {
+      const form = e.target;
+      if (!form.checkValidity()) {
+        
+        return;
+      }
+      
+      e.preventDefault();
+      alert('ฟอร์มถูกส่งเรียบร้อยแล้ว!');
+    });
+  </script>
+</body>
+</html>
